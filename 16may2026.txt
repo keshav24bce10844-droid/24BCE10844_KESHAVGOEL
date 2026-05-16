@@ -1,0 +1,30 @@
+SHOW DATABASES;
+
+CREATE DATABASE VITCampus1;
+
+USE VITCampus1;
+
+CREATE TABLE CSE(
+    sid INT,
+    sname VARCHAR(50),
+    smarks INT
+);
+
+CREATE TABLE Mech(
+    sid INT,
+    sname VARCHAR(50),
+    smarks INT
+);
+
+CREATE TABLE EEE(
+    sid INT,
+    sname VARCHAR(50),
+    smarks INT
+);
+
+SHOW TABLES;
+
+
+
+INSERT INTO CSE VALUES (109, 'Kiran', 99),(203,'keshav', 90), (110, 'rahul' , 94),(113,'mohan', 89),(117,'vanshika', 99);
+SELECT * FROM CSE;
