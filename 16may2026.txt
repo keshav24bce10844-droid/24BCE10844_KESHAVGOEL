@@ -5,21 +5,21 @@ CREATE DATABASE VITCampus1;
 USE VITCampus1;
 
 CREATE TABLE CSE(
-    sid INT,
+    sid INT8,
     sname VARCHAR(50),
-    smarks INT
+    smarks INT1
 );
 
 CREATE TABLE Mech(
-    sid INT,
+    sid INT8,
     sname VARCHAR(50),
-    smarks INT
+    smarks INT1
 );
 
 CREATE TABLE EEE(
-    sid INT,
+    sid INT8,
     sname VARCHAR(50),
-    smarks INT
+    smarks INT1
 );
 
 SHOW TABLES;
