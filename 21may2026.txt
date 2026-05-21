@@ -1,0 +1,13 @@
+show databases;
+use office;
+show tables;
+select * from worker;
+select department , SUM(salary) from worker group by department;
+select sum(salary) from worker where department='HR';
+select department, sum(salary) from worker group by department having sum(salary)<300000;
+select department, count(department) from worker group by department having sum(salary)< 300000 order by department asc;
+select * from worker limit 2 offset 3;
+select * from toppers;
+
+select sum(salary), department from worker group by department order by sum(salary) asc limit 2;
+select first_name, salary from worker where department = 'Admin'order by salary desc limit 1 offset 1;
