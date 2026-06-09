@@ -1,0 +1,70 @@
+C:\Users\KESHAV>"C:\Program Files\MongoDB\Server\8.3\bin\mongod.exe" --replSet myReplSet --dbpath C:\data\db0 --port 27017 --bind_ip localhost
+
+C:\Users\KESHAV>"C:\Program Files\MongoDB\Server\8.3\bin\mongod.exe" --replSet myReplSet --dbpath C:\data\db1 --port 27018 --bind_ip localhost
+
+C:\Users\KESHAV>"C:\Program Files\MongoDB\Server\8.3\bin\mongod.exe" --replSet myReplSet --dbpath C:\data\db2 --port 27019 --bind_ip localhost
+
+C:\Users\KESHAV>"C:\Program Files\MongoDB\Server\8.3\bin\mongosh.exe" mongodb://localhost:27017
+Current Mongosh Log ID: 6a2850825dd3ba26eeabc113
+Connecting to:          mongodb://localhost:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.8.3
+Using MongoDB:          8.3.2
+Using Mongosh:          2.8.3
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2026-06-09T17:42:58.328+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> rs.initiate({
+|   _id: "myReplSet",
+|   members: [
+|     { _id: 0, host: "localhost:27017" },
+|     { _id: 1, host: "localhost:27018" },
+|     { _id: 2, host: "localhost:27019" }
+|   ]
+| })
+MongoServerError[NoReplicationEnabled]: This node was not started with replication enabled.
+test> db.serverCmdLineOpts()
+{
+  argv: [
+    'C:\\Program Files\\MongoDB\\Server\\8.3\\bin\\mongod.exe',
+    '--config',
+    'C:\\Program Files\\MongoDB\\Server\\8.3\\bin\\mongod.cfg',
+    '--service'
+  ],
+  parsed: {
+    config: 'C:\\Program Files\\MongoDB\\Server\\8.3\\bin\\mongod.cfg',
+    net: { bindIp: '127.0.0.1', port: 27017 },
+    service: true,
+    storage: { dbPath: 'C:\\Program Files\\MongoDB\\Server\\8.3\\data' },
+    systemLog: {
+      destination: 'file',
+      logAppend: true,
+      path: 'C:\\Program Files\\MongoDB\\Server\\8.3\\log\\mongod.log'
+    }
+  },
+  ok: 1
+}
+test> db.adminCommand({ getCmdLineOpts: 1 })
+{
+  argv: [
+    'C:\\Program Files\\MongoDB\\Server\\8.3\\bin\\mongod.exe',
+    '--config',
+    'C:\\Program Files\\MongoDB\\Server\\8.3\\bin\\mongod.cfg',
+    '--service'
+  ],
+  parsed: {
+    config: 'C:\\Program Files\\MongoDB\\Server\\8.3\\bin\\mongod.cfg',
+    net: { bindIp: '127.0.0.1', port: 27017 },
+    service: true,
+    storage: { dbPath: 'C:\\Program Files\\MongoDB\\Server\\8.3\\data' },
+    systemLog: {
+      destination: 'file',
+      logAppend: true,
+      path: 'C:\\Program Files\\MongoDB\\Server\\8.3\\log\\mongod.log'
+    }
+  },
+  ok: 1
+}
