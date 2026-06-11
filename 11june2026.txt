@@ -729,12 +729,12 @@ Totals
   docs: 0,
   chunks: 2,
   'Shard shard1ReplSet': [
-    '0 % data',
+    '50 % data',
     '0 % docs in cluster',
     '0B avg obj size on shard'
   ],
   'Shard shard2ReplSet': [
-    '0 % data',
+    '50 % data',
     '0 % docs in cluster',
     '0B avg obj size on shard'
   ]
